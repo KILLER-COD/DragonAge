@@ -33,9 +33,15 @@ public class Win {
 
     private void updateButtons(){
         if(Mouse.isButtonDown(0)) {
-            if(winUI.isButtonClicked("Next"))
+            if(winUI.isButtonClicked("Next")){
                 StateManager.map = LoadMap("newMap"+nextLvL);
-            StateManager.setState(StateManager.GameState.GAME);
+                StateManager.win = null;
+                StateManager.game = null;
+                StateManager.mainMenu = null;
+                StateManager.setState(StateManager.GameState.GAME);
+
+
+            }
         }
     }
 

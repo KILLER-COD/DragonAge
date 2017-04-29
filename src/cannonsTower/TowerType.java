@@ -1,5 +1,7 @@
 package cannonsTower;
 
+import static gameStart.Options.START_TOWER_PRICE_BLUE;
+import static gameStart.Options.START_TOWER_PRICE_ICE;
 import static helpers.Methods.QuickLoad;
 
 import org.newdawn.slick.opengl.Texture;
@@ -8,9 +10,9 @@ import bullets.ProjectileType;
 
 public enum TowerType {
 	
-	CannonBlue(new Texture[]{QuickLoad("cannonBaseBlue"),QuickLoad("cannonGunBlue")}, ProjectileType.CannonBall,30, 1000, 3, 15),
+	CannonBlue(new Texture[]{QuickLoad("cannonBaseBlue"),QuickLoad("cannonGunBlue")}, ProjectileType.CannonBall,30, 1000, 3, START_TOWER_PRICE_BLUE),
 	
-	CannonIce(new Texture[]{QuickLoad("cannonBaseIce"),QuickLoad("cannonGunIce")}, ProjectileType.IceVall ,30, 1000, 3, 20);
+	CannonIce(new Texture[]{QuickLoad("cannonBaseIce"),QuickLoad("cannonGunIce")}, ProjectileType.IceVall ,30, 1000, 3, START_TOWER_PRICE_ICE);
 
 	
 	public Texture[] textures ;

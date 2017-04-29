@@ -71,12 +71,10 @@ public class Game {
             if (mouseClicked && maxTower < 11) {
                 if (towerPickerMenu.isButtonClicked("BlueCannon")) {
                     player.pickTower(new TowerCannonBlue(TowerType.CannonBlue, grid.getTile(0, 0), waveManager.getCurrentWave().getEnemiesList()));
-                    //maxTower++;
 
                 }
                 if (towerPickerMenu.isButtonClicked("IceCannon")) {
                     player.pickTower(new TowerCannonIce(TowerType.CannonIce, grid.getTile(0, 0), waveManager.getCurrentWave().getEnemiesList()));
-                    //maxTower++;
                 }
 
             }
@@ -103,15 +101,16 @@ public class Game {
             Boot.restart();
         }
 
-        if(waveManager.getWaveNumber() > 10){
+        if(waveManager.getWaveNumber() > 2){
 
             if (Win.nextLvL ==  6 ){
                 Display.destroy();;
             }
 
             maxTower = 0;
-            StateManager.game = null;
-            StateManager.mainMenu = null;
-            StateManager.gameState = StateManager.GameState.WIN;        }
+            Win.nextLvL++;
+
+            StateManager.gameState = StateManager.GameState.WIN;
+        }
     }
 }
