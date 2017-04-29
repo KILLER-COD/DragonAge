@@ -14,8 +14,8 @@ public class Options {
     public static int CASH_START = 100;
     public static int LIVE_START = 10;
     public static int START_DAMAGE_BLUE = 10;
-    public static int START_TOWER_PRICE_BLUE = 15;
     public static int START_DAMAGE_ICE = 5;
+    public static int START_TOWER_PRICE_BLUE = 15;
     public static int START_TOWER_PRICE_ICE = 20;
     public static int START_SPEED_BLUE = 280;
     public static int START_SPEED_ICE = 450;
