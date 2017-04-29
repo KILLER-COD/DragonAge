@@ -52,7 +52,7 @@ public class Player {
     public static boolean modifyCash(int amount) {
         if (Cash + amount >= 0) {
             Cash += amount;
-            GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
+            GL11.glClear( GL11.GL_DEPTH_BUFFER_BIT);
             DrawQuadTex(QuickLoad("menuRightV2"), 1280, 0, 192, 960);
             Game.setupUI() ;
             Game.updateUI();
