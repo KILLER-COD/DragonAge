@@ -20,7 +20,7 @@ public class StateManager {
 	public static int framesInLastSecond = 0;
 	public static int framesInCurrentSecond = 0;
 
-	public static TileGrid map = LoadMap("newMap");
+	public static TileGrid map = LoadMap("newMap1");
 
 	public static void update() {
 		switch(gameState){

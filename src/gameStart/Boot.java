@@ -12,6 +12,7 @@ import helpers.Leveler;
 import org.lwjgl.opengl.Display;
 
 import helpers.Clock;
+import org.lwjgl.opengl.GL11;
 import sun.invoke.empty.Empty;
 
 
@@ -22,11 +23,14 @@ public class Boot {
         BeginSession();
 
         while (!Display.isCloseRequested()) {
+//            GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
+
             Display.sync(20);
 
             Clock.update();
 
             StateManager.update();
+
 
             if (CONTINUE == false) {
                 break;
@@ -45,7 +49,7 @@ public class Boot {
         //Clock.update();
         StateManager.game = null;
         StateManager.mainMenu = null;
-        StateManager.map = Leveler.LoadMap("newMap");
+        StateManager.map = Leveler.LoadMap("newMap1");
         StateManager.gameState = StateManager.GameState.MAINMENU;
         CONTINUE = true;
         Player.getTowerList().clear();

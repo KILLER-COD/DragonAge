@@ -103,6 +103,8 @@ public class Enemy extends Entity {
             int[] currentD = findNextD(checkpoints.get(counter).getTile());
             //Check if a next direction/checkpoint exists, end after 20 checkpoint (arbitrary)
             if (currentD[0] == 2 || counter == 20) {
+                System.out.println(CheckpointReached());
+                System.out.println(currentCheckpoint + 1 == checkpoints.size());
                 cont = false;
             } else {
                 checkpoints.add(findNextC(checkpoints.get(counter).getTile(),
@@ -214,25 +216,25 @@ public class Enemy extends Entity {
             Dir[1] = High;
             Low = 0;
 
-            System.out.println();
-            System.out.println("-----------------------------------------------------------------");
-            System.out.println(Low + " - " + High);
-            System.out.println();
+//            System.out.println();
+//            System.out.println("-----------------------------------------------------------------");
+//            System.out.println(Low + " - " + High);
+//            System.out.println();
             int randomDirection = new Random().nextInt(2);
-            System.out.println("Random number = " +randomDirection);
-            System.out.println("-----------------------------------------------------------------");
+//            System.out.println("Random number = " +randomDirection);
+//            System.out.println("-----------------------------------------------------------------");
 
             switch(randomDirection){
                 case 0:
                     dir[0] = opt[Dir[0]][0];
                     dir[1] = opt[Dir[0]][1];
-                    System.out.println(optName[opt[Dir[0]][2]]);
+//                    System.out.println(optName[opt[Dir[0]][2]]);
                     break;
 
                 case 1:
                     dir[0] = opt[Dir[1]][0];
                     dir[1] = opt[Dir[1]][1];
-                    System.out.println(optName[opt[Dir[1]][2]]);
+//                    System.out.println(optName[opt[Dir[1]][2]]);
                     break;
 
             }

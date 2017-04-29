@@ -15,6 +15,7 @@ public class Win {
     private Texture background;
     private UI winUI;
     private UI.UI_String gameUIString;
+    public static int nextLvL = 1;
 
 
     public Win(){
@@ -22,25 +23,23 @@ public class Win {
         winUI = new UI();
         gameUIString = new UI.UI_String();
         winUI.addButton("Next" , "next", WIDTH / 2 - 80 , (int)(HEIGHT * 0.42F));
+        DrawQuadTex(background, 0, 0, 2048, 1024);
+        winUI.draw();
+        gameUIString.drawString(450, 500, "NEXT", Color.black);
+        DrawQuadTex(QuickLoad("you_win"),400,200,800,300);
+
 
     }
 
     private void updateButtons(){
         if(Mouse.isButtonDown(0)) {
             if(winUI.isButtonClicked("Next"))
-                StateManager.map = LoadMap("newMap2");
+                StateManager.map = LoadMap("newMap"+nextLvL);
             StateManager.setState(StateManager.GameState.GAME);
         }
     }
 
-
-
     public void update(){
-        DrawQuadTex(background, 0, 0, 2048, 1024);
-        winUI.draw();
         updateButtons();
-        gameUIString.drawString(450, 500, "NEXT", Color.black);
-        DrawQuadTex(QuickLoad("you_win"),400,200,800,300);
     }
-
 }

@@ -12,6 +12,7 @@ import org.lwjgl.input.Mouse;
 
 import cannonsTower.Tower;
 import helpers.Clock;
+import org.lwjgl.opengl.GL11;
 import tiles.Tile;
 import tiles.TileGrid;
 import tiles.TileType;
@@ -26,6 +27,7 @@ public class Player {
     private boolean leftMouseButtonDown, rightMouseButtonDown, holdingTower;
     private Tower tempTower;
     public static int Cash, Lives;
+
 
 
     public Player(TileGrid grid, WaveManager waveManager) {
@@ -50,8 +52,12 @@ public class Player {
     public static boolean modifyCash(int amount) {
         if (Cash + amount >= 0) {
             Cash += amount;
+            GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
             DrawQuadTex(QuickLoad("menuRightV2"), 1280, 0, 192, 960);
             Game.setupUI() ;
+            Game.updateUI();
+
+
             return true;
         }
         return false;
@@ -79,7 +85,6 @@ public class Player {
             t.update();
             t.draw();
             t.updateEnemyList(waveManager.getCurrentWave().getEnemiesList());
-
         }
 
         //Handle Mouse Input
@@ -107,11 +112,12 @@ public class Player {
         Tile currentTile = getMouseTile();
         if (holdingTower) {
             if (modifyCash(-tempTower.getCost()) && currentTile.getType() == TileType.Grass && !currentTile.getOcupaied()) {
-
+                Game.maxTower++;
                 currentTile.setOcupaied(true);
                 towerList.add(tempTower);
                 holdingTower = false;
                 tempTower = null;
+                System.out.println(Game.maxTower);
             }
         }
     }
