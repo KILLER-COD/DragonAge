@@ -27,7 +27,7 @@ public class Player {
     private boolean leftMouseButtonDown, rightMouseButtonDown, holdingTower;
     private Tower tempTower;
     public static int Cash, Lives;
-
+    public static int ice;
 
 
     public Player(TileGrid grid, WaveManager waveManager) {
@@ -51,8 +51,10 @@ public class Player {
     // Check if player can afford tower, if so: charge player tower cost
     public static boolean modifyCash(int amount) {
         if (Cash + amount >= 0) {
+            System.out.println(Cash+amount);
             Cash += amount;
             GL11.glClear( GL11.GL_DEPTH_BUFFER_BIT);
+//            GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
             DrawQuadTex(QuickLoad("menuRightV2"), 1280, 0, 192, 960);
             Game.setupUI() ;
             Game.updateUI();
@@ -113,6 +115,21 @@ public class Player {
         if (holdingTower) {
             if (modifyCash(-tempTower.getCost()) && currentTile.getType() == TileType.Grass && !currentTile.getOcupaied()) {
                 Game.maxTower++;
+
+                if(ice == 1) {
+                    START_TOWER_PRICE_ICE += 5;
+                    GL11.glClear( GL11.GL_DEPTH_BUFFER_BIT);
+                    DrawQuadTex(QuickLoad("menuRightV2"), 1280, 0, 192, 960);
+                    Game.setupUI() ;
+                    Game.updateUI();
+                } else {
+                    START_TOWER_PRICE_BLUE += 5;
+                    GL11.glClear( GL11.GL_DEPTH_BUFFER_BIT);
+                    DrawQuadTex(QuickLoad("menuRightV2"), 1280, 0, 192, 960);
+                    Game.setupUI() ;
+                    Game.updateUI();
+                }
+
                 currentTile.setOcupaied(true);
                 towerList.add(tempTower);
                 holdingTower = false;

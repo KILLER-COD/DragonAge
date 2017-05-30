@@ -54,8 +54,6 @@ public class Game {
 
         gameUIString.drawString(1290, 200, "Max Towers - 10");
         gameUIString.drawString(1290, 300, "Tower Cash Info ");
-        gameUIString.drawString(1300, 350, "Blue Tower - "+ START_TOWER_PRICE_BLUE );
-        gameUIString.drawString(1300, 400, "Ice  Tower - "+ START_TOWER_PRICE_ICE);
 
         gameUi.draw();
 
@@ -64,19 +62,18 @@ public class Game {
 
 
     }
-    public static void updateUI1() {
+     static void updateUI1() {
         if (Mouse.next()) {
             boolean mouseClicked = Mouse.isButtonDown(0);
 
             if (mouseClicked && maxTower < 11) {
                 if (towerPickerMenu.isButtonClicked("BlueCannon")) {
+                    Player.ice = 0;
                     player.pickTower(new TowerCannonBlue(TowerType.CannonBlue, grid.getTile(0, 0), waveManager.getCurrentWave().getEnemiesList()));
-                    START_TOWER_PRICE_BLUE += 5;
-
                 }
                 if (towerPickerMenu.isButtonClicked("IceCannon")) {
+                    Player.ice = 1;
                     player.pickTower(new TowerCannonIce(TowerType.CannonIce, grid.getTile(0, 0), waveManager.getCurrentWave().getEnemiesList()));
-                    START_TOWER_PRICE_ICE += 5;
                 }
 
             }
@@ -84,6 +81,9 @@ public class Game {
     }
 
     public static void updateUI() {
+
+        gameUIString.drawString(1300, 350, "Blue Tower - "+ START_TOWER_PRICE_BLUE );
+        gameUIString.drawString(1300, 400, "Ice  Tower - "+ START_TOWER_PRICE_ICE);
 
         gameUIString.drawString(1310, 600, "Lives " + Player.Lives);
         gameUIString.drawString(1310, 700, "Cash " + Player.Cash);
@@ -103,8 +103,7 @@ public class Game {
             Boot.restart();
         }
 
-        if(waveManager.getWaveNumber() > 2){
-
+        if(waveManager.getWaveNumber() > 10){
             if (Win.nextLvL ==  6 ){
                 Display.destroy();;
             }

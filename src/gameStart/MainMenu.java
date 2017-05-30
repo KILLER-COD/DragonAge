@@ -13,7 +13,7 @@ public class MainMenu {
 	private UI menuUI;
 
 	public MainMenu(){
-		background = QuickLoad("mainmenu");
+		background = QuickLoad("mainmenu_2");
 		menuUI = new UI();
 		menuUI.addButton("Play" , "play", WIDTH / 2 -128 , (int)(HEIGHT * 0.45F));
 		menuUI.addButton("Editor", "editor", WIDTH / 2 -128 , (int)(HEIGHT * 0.55F));
