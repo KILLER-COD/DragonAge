@@ -25,7 +25,7 @@ public class Editor {
 
 
 	public Editor(){
-		this.grid = LoadMap("newMap5");
+		this.grid = LoadMap("gameStart/newMap5");
 		this.index = 0; 
 		this.types = new TileType[3];
 		this.types[0] = TileType.Grass;
@@ -74,7 +74,7 @@ public class Editor {
 			}
 			if (Keyboard.getEventKey() == Keyboard.KEY_S && 
 					Keyboard.getEventKeyState()){
-				SaveMap("newMap5",grid);
+				SaveMap("gameStart/newMap5",grid);
 			}
 		}
 	}

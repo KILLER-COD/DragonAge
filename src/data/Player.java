@@ -134,7 +134,6 @@ public class Player {
                 towerList.add(tempTower);
                 holdingTower = false;
                 tempTower = null;
-                System.out.println(Game.maxTower);
             }
         }
     }

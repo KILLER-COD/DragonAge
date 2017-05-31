@@ -1,10 +1,6 @@
 package helpers;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 
 import tiles.Tile;
 import tiles.TileGrid;
@@ -33,7 +29,9 @@ public class Leveler {
 		TileGrid grid = new TileGrid();
 
 		try{
-			BufferedReader br = new BufferedReader(new FileReader(mapName));
+			InputStream inputStream = Leveler.class.getResourceAsStream("/res/"+mapName);
+			InputStreamReader streamReader = new InputStreamReader(inputStream);
+			BufferedReader br = new BufferedReader(streamReader);
 			String data = br.readLine();
 			for (int i = 0; i < grid.getTileWide(); i++) {
 				for (int j = 0; j < grid.getTileHigh(); j++) {

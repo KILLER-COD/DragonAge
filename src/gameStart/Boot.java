@@ -2,18 +2,13 @@ package gameStart;
 
 import static gameStart.Options.LIVE_START;
 import static helpers.Methods.BeginSession;
-import static helpers.Methods.DrawQuadTex;
-import static helpers.Methods.QuickLoad;
 
 import data.Player;
 import data.Wave;
-import data.WaveManager;
 import helpers.Leveler;
 import org.lwjgl.opengl.Display;
 
 import helpers.Clock;
-import org.lwjgl.opengl.GL11;
-import sun.invoke.empty.Empty;
 
 
 public class Boot {

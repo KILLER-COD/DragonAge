@@ -103,8 +103,6 @@ public class Enemy extends Entity {
             int[] currentD = findNextD(checkpoints.get(counter).getTile());
             //Check if a next direction/checkpoint exists, end after 20 checkpoint (arbitrary)
             if (currentD[0] == 2 || counter == 20) {
-                System.out.println(CheckpointReached());
-                System.out.println(currentCheckpoint + 1 == checkpoints.size());
                 cont = false;
             } else {
                 checkpoints.add(findNextC(checkpoints.get(counter).getTile(),
@@ -209,7 +207,6 @@ public class Enemy extends Entity {
                 } else if (randDir[i] == 1 && h == 1) {
                     High = i;
                 }
-                System.out.print(randDir[i]+" - ");
             }
             int[] Dir= new int[2];
             Dir[0] = Low;
